@@ -1,16 +1,16 @@
-Spec file for go
+RPM specfile for go (http://golang.org)
 
 To create a source rpm, do the following:
 
-- hg clone -u release https://go.googlecode.com/hg/ go
-- modify the version number in the specfile to be somewhat correct
-- tar zcvf golang-$VERSION.tar.gz go
-- rpmbuild -bs --nodeps --define "_sourcedir ." --define "_srcrpmdir ." golang.spec
+- Download the latest source tarball from
+  http://code.google.com/p/go/downloads/list into this directory
+- Modify the version number in the specfile
+- rpmbuild -bs --nodeps --define "_sourcedir ." --define "_srcrpmdir ." go.spec
 
 Then to create the binary, you can use rpmbuild or mock, mock would be better
 
 Rpmbuild:
-  rpmbuild --rebuild golang-$VERSION.src.rpm
+  rpmbuild --rebuild go-$VERSION.src.rpm
 
 Mock:
-  sudo mock golang-$VERSION.src.rpm
+  sudo mock go-$VERSION.src.rpm

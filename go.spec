@@ -1,13 +1,14 @@
+%define booking_repo base
 # Specfile for go. See README for instructions
 
-Name:          golang
-Version:       0.20120225
+Name:          go
+Version:       1.0.2
 Release:       1%{?dist}
 Summary:       Go compiler and tools
 Group:         Development/Languages
 License:       BSD
 URL:           http://golang.org/
-Source0:       %{name}-%{version}.tar.gz
+Source0:       http://go.googlecode.com/files/%{name}%{version}.src.tar.gz
 BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: ed
 BuildRequires: bison
@@ -110,7 +111,7 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
-%doc AUTHORS CONTRIBUTORS LICENSE README doc/* README.Fedora
+%doc AUTHORS CONTRIBUTORS LICENSE README doc/*
 %{_libdir}/go
 %ifarch %ix86
 %{_bindir}/8*
@@ -135,5 +136,7 @@ rm -rf %{buildroot}
 %{_datadir}/emacs/site-lisp/go-mode*.el
 
 %changelog
-* Sat Feb 12 2012 Dennis Kaarsemaker <dennis.kaarsemaker@booking.com> - 20120225
+* Sun Sep 02 2012 Dennis Kaarsemaker <dennis.kaarsemaker@booking.com> - 1.0.2
+- Rename to 'go' and update to 1.0.2
+* Sat Feb 12 2012 Dennis Kaarsemaker <dennis.kaarsemaker@booking.com> - 0.20120225
 - Go mercurial tip 120120225, package roughly based on Tonnere Lombard's  old one
